@@ -1,12 +1,14 @@
 # This python file is designed to create helper functions to utilize the {} library to generate a pdf
 
-from reportlab.pdfgen.canvas import Canvas
+#from reportlab.pdfgen.canvas import Canvas
 from copy import deepcopy
 from shared_dictionaries import label_inputs
 from datetime import datetime
 from reportlab.lib.pagesizes import letter
 from reportlab.lib.pagesizes import A4
 from reportlab.lib.units import inch
+from jinja2 import Template
+from flask import Flask, render_template
 
 # datetime object containing current date and time
 now = datetime.now()
@@ -21,7 +23,7 @@ class Label:
     def __init__(self, product_item_id, number_of_labels=1):
         self.product_item_id = product_item_id
         self.number_of_labels = number_of_labels
-        self.filename = str("../label_pdfs/" + "product label: " + product_item_id + "_" + dt_string + ".pdf")
+        self.filename = str('../../label_pdfs/' + "product label: " + product_item_id + "_" + dt_string + ".pdf")
 
     # create a copy of the all options for information types that can be added to added to the label by default
     label_inputs_list = deepcopy(label_inputs.label_inputs)
@@ -123,4 +125,9 @@ if __name__ == "__main__":
     print(new_label.rank_ordered_info_to_display_list)
     new_label.create_label_pdf()
     new_label.order_info_on_label_display()
+
+    #left off here:https://realpython.com/primer-on-jinja-templating/#quick-examples
+
+    t = Template("My favorite numbers: {% for n in range(1,10) %}{{n}} " "{% endfor %}")
+    t.render()
 
