@@ -2,6 +2,15 @@ DEFAULT_LABEL_HEIGHT = 11.5  # inches
 DEFAULT_LABEL_WIDTH = 8.5  # inches
 DEFAULT_NUMBER_OF_LABELS = 1  # page
 
+label_inputs_for_3PLWINNER = [
+     'product_id',
+     'qty',
+     'box_dimensions',
+     'box_weight_lbs',
+     'customer_number',
+     'sku'
+ ]
+
 label_inputs = [
      'box_length_measured_in',
      'box_length', 'box_width',
@@ -20,4 +29,4 @@ label_inputs = [
      'label_height',
      'label_width',
      'number_of_labels'
- ]
+]
