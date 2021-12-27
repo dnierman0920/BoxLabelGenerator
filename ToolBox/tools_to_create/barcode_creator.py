@@ -1,14 +1,7 @@
 # This python file is designed to create helper functions to utilize the {} library to generate a barcode
-from barcode import Code39
 from barcode.codex import Code39
 from barcode.writer import ImageWriter
-from reportlab.lib.pagesizes import letter
-from reportlab.pdfgen import canvas
-from reportlab.lib.units import inch
 
-
-# info on how to use python-barcode https://python-barcode.readthedocs.io/en/stable/codes.html#code-39
-# info on how to use python-barcode https://pypi.org/project/python-barcode/
 
 def create_barcode(code):
     """creates barcode in format Code39"""
@@ -18,4 +11,4 @@ def create_barcode(code):
 
 
 if __name__ == "__main__":
-    create_barcode("TEST12345TEST", "filename")
+    pass
