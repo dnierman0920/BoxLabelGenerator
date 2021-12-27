@@ -23,7 +23,7 @@ class Label:
     def __init__(self, label_name, number_of_labels=1):
         self.product_item_id = label_name
         self.number_of_labels = number_of_labels
-        self.filename = str("temp_storage/product label:" + label_name + "_" + dt_string + ".pdf")
+        self.filename = str("/tmp/" + label_name + "_" + dt_string + ".pdf")
 
     # create a copy of the all options for information types that can be added to added to the label by default
     box_description_list = deepcopy(box_descriptions.label_inputs_for_3PLWINNER)
@@ -55,6 +55,7 @@ class Label:
 
         #  create the barcode
         code = self.box_description_dict.get("sku")
+        print(f'THE CODE input to create the barcode is:{code}')
         barcode_file = create_barcode(code)
 
         #  add the barcode

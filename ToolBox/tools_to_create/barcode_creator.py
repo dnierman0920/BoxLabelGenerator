@@ -12,10 +12,10 @@ from reportlab.lib.units import inch
 
 def create_barcode(code):
     """creates barcode in format Code39"""
-    barcode: Code39 = Code39(code, writer=ImageWriter())
-    barcode.save(str("temp_storage/" + code + "_barcode"))
-    return str("temp_storage/" + code + "_barcode.png")
+    barcode: Code39 = Code39(code, writer=ImageWriter(), add_checksum=False)
+    barcode.save(str("/tmp/" + code + "_barcode"))
+    return str("/tmp/" + code + "_barcode.png")
 
 
 if __name__ == "__main__":
-    create_barcode("ekjgneknge", "filename")
+    create_barcode("TEST12345TEST", "filename")
